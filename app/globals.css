@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+  }
+}
+
+body {
+  background: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.album-card {
+  display: grid;
+  grid-template-rows: auto 0fr; /* Inicialmente, a segunda linha (músicas) está oculta */
+  transition: grid-template-rows 0.3s ease;
+}
+
+.album-card.expanded {
+  grid-template-rows: auto 1fr; /* Expande a segunda linha (músicas) */
+}
