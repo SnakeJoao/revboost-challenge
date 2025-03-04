@@ -12,4 +12,4 @@ export interface Album {
   strGenre: string;
   strDescriptionEN: string;
   idArtist: string;
-};
+}

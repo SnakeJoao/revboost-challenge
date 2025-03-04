@@ -25,11 +25,7 @@ export default async function AlbumPage({ params }: AlbumPageProps) {
   }
 
   if (!albumData) {
-    return (
-      <div className="min-h-screen text-white p-6">
-        Album not found.
-      </div>
-    );
+    return <div className="min-h-screen text-white p-6">Album not found.</div>;
   }
 
   const {
@@ -105,7 +101,7 @@ export default async function AlbumPage({ params }: AlbumPageProps) {
         <div>
           <h2 className="text-2xl font-bold mb-4">Tracks</h2>
           <ul className="space-y-2">
-            {tracks.map((track: any) => (
+            {tracks.map((track: Track) => (
               <li
                 key={track.idTrack}
                 className="group bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300"
