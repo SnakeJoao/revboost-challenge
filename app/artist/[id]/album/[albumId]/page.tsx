@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '@/services/api';
+import Image from 'next/image';
 import type { AlbumPageProps, Track } from '@/types/components/album-cards';
 
 export default async function AlbumPage({ params }: AlbumPageProps) {
@@ -69,11 +70,15 @@ export default async function AlbumPage({ params }: AlbumPageProps) {
               </p>
             </div>
           </div>
-          <img
-            src={strAlbumThumb || '/default-album.jpg'}
-            alt={strAlbum}
-            className="w-48 h-48 object-cover rounded-lg"
-          />
+          {strAlbumThumb && (
+            <Image
+              src={strAlbumThumb}
+              alt={strAlbum}
+              width={192}
+              height={192}
+              className="object-cover rounded-lg"
+            />
+          )}
         </div>
 
         {strDescriptionEN && (

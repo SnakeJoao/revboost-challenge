@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import type { AlbumCardProps } from '@/types/components/album-cards';
 
 export default function AlbumCard({ album }: AlbumCardProps) {
@@ -18,12 +19,16 @@ export default function AlbumCard({ album }: AlbumCardProps) {
       onClick={handleClick}
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
-        <div className="flex justify-center items-center">
-          <img
-            src={album.strAlbumThumb || '/default-album.jpg'}
+      <div className="flex justify-center items-center">
+        {album.strAlbumThumb && (
+          <Image
+            src={album.strAlbumThumb}
             alt={album.strAlbum}
-            className="w-full h-48 sm:h-64 object-cover rounded-lg"
+            width={400} 
+            height={256}
+            className="object-cover rounded-lg"
           />
+        )}
         </div>
         <div className="flex flex-col justify-center">
           <h3 className="text-xl font-bold">{album.strAlbum}</h3>
